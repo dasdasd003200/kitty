@@ -35,7 +35,6 @@ cd ~/.config/kitty
 - **Desde terminal**: ` chmod +x create-desktop.sh`
 - **Desde terminal**: `./create-desktop.sh`
 
-
 - **Listar imágenes**: `./setup-kitty.sh -l`
 - **Restaurar config**: `./setup-kitty.sh -r`
 
@@ -51,4 +50,5 @@ cd ~/.config/kitty
 
 Formatos soportados: jpg, jpeg, png, webp, gif, bmp
 
-
+#para probar temas
+kitty +kitten themes

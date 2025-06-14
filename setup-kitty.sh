@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Directorio de configuración de Kitty
 KITTY_DIR="$HOME/.config/kitty"
 IMAGES_DIR="$KITTY_DIR/background_images"
@@ -22,7 +21,6 @@ find_images() {
 update_config() {
   local image_path="$1"
   local temp_config=$(mktemp)
-
   while IFS= read -r line; do
     if [[ $line =~ ^[[:space:]]*background_image ]]; then
       echo "background_image        $image_path"
@@ -30,7 +28,6 @@ update_config() {
       echo "$line"
     fi
   done <"$CONFIG_FILE" >"$temp_config"
-
   mv "$temp_config" "$CONFIG_FILE"
 }
 
@@ -48,7 +45,6 @@ main() {
     echo "Error: $IMAGES_DIR no existe"
     exit 1
   fi
-
   if [ ! -f "$CONFIG_FILE" ]; then
     echo "Error: $CONFIG_FILE no existe"
     exit 1
@@ -56,7 +52,6 @@ main() {
 
   # Buscar imágenes
   mapfile -t IMAGES < <(find_images)
-
   if [ ${#IMAGES[@]} -eq 0 ]; then
     echo "No hay imágenes en $IMAGES_DIR"
     exit 1
@@ -65,12 +60,14 @@ main() {
   # Seleccionar imagen aleatoria
   RANDOM_INDEX=$((RANDOM % ${#IMAGES[@]}))
   SELECTED_IMAGE="${IMAGES[RANDOM_INDEX]}"
-
   echo "Usando: $(basename "$SELECTED_IMAGE")"
 
   # Backup y actualizar
   backup_config
   update_config "$SELECTED_IMAGE"
+
+  # Cambiar al directorio home antes de abrir Kitty
+  cd "$HOME"
 
   # Abrir Kitty
   kitty --detach &

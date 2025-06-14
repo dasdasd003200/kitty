@@ -1,5 +1,5 @@
 # no subir imagenes al git
 *.jpg
 *.desktop
-*.backup
+# *.backup
 

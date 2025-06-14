@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Kitty Random Background
+Comment=Abrir Kitty con imagen de fondo aleatoria
+Exec=/home/dasdasd/.config/kitty/setup-kitty.sh
+Icon=kitty
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;
+Keywords=terminal;kitty;background;random;
+StartupNotify=true
+Name[es]=Kitty Fondo Aleatorio
+Comment[es]=Abrir terminal Kitty con imagen de fondo aleatoria
+Path=/home/dasdasd/.config/kitty

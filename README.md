@@ -52,3 +52,4 @@ Formatos soportados: jpg, jpeg, png, webp, gif, bmp
 
 #para probar temas
 kitty +kitten themes
+#test
